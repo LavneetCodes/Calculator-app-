@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            @media screen and (min-width:350px) {
+                body{
+                    background-color: yellowgreen;
+                }
+                h2 span::before{
+                    content: "phone device";
+                }
+                header{
+                min-height: 100px;
+                background-color: blueviolet;
+            }
+            footer{
+                min-height: 100px;
+                background-color: green;
+            }
+            }
+           
+            .main-container{
+                height: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: center;    
+            }
+            .calcy{
+                display: grid;
+                grid-template-columns: repeat(4, 80px);
+                background-color: aqua;
+                padding: 15px;
+                border-radius: 30px;
+                box-shadow: inset  5px 5px 10px wheat,
+                5px 5px 10px lightgray;
+
+            }
+            #ipt{
+                grid-column: span 4;
+                height: 65px;
+                width: 297px;
+                border-radius: 20px;
+                background-color: antiquewhite;
+                border: none;
+                text-align: end;
+                font-size: 50px;
+                margin-top: 15px;
+                margin-bottom: 30px;
+                margin-right: 2px;
+                margin-left: 1;
+                padding: 10px;
+                box-shadow: inset  -5px -5px 13px white,
+                inset 5px 5px 13px lightgray;
+
+            }
+            button{
+                height: 45px;
+                width: 60px;
+                border-radius: 50%;
+                font-size: 20;
+                background-color: powderblue;
+                border: none;
+                margin: 10px;
+                box-shadow:  -5px -5px 14px black,
+                5px 5px 14px lightgray;
+                
+            }
+            #eq{
+                width: 140px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<header> <h2 id="para"></h2> </header>-->
+     
+        <div class="main-container">
+            <div class="calcy">
+                <input type="text" placeholder="0" id="ipt">
+                <button onclick="Clear()"> Clear</button>
+                <button onclick="Del()">DEL</button>
+                <button onclick="display('%')">%</button>
+                <button onclick="display('/')">/</button>
+                <button onclick="display('7')">7</button>
+                <button onclick="display('8')">8</button>
+                <button onclick="display('9')">9</button>
+                <button onclick="display('*')">*</button>
+                <button onclick="display('4')">4</button>
+                <button onclick="display('5')">5</button>
+                <button onclick="display('6')">6</button>
+                <button onclick="display('-')">-</button>
+                <button onclick="display('1')">1</button>
+                <button onclick="display('2')">2</button>
+                <button onclick="display('3')">3</button>
+                <button onclick="display('+')">+</button>
+                <button onclick="display('.')">.</button>
+                <button onclick="display('0')">0</button>
+                <button id="eq" onclick="calculator()">=</button>
+            </div>
+        </div>
+    
+        <script>
+            var a = document.getElementById("ipt")
+            var p = document.getElementById("para")
+            function display(x)
+            {
+                a.value+=x
+            }
+            function calculator()
+            {
+               
+               try{
+                a.value=eval(a.value)
+               }
+               catch
+               {
+                p.innerHTML="This Input Is Invalid"              
+               }
+            }
+            function Clear()
+            {
+                a.value=""
+            }
+            function Del()
+            {
+                a.value=a.value.slice(0,-1)
+            }
+            
+        </script>
+        
+    </body>
+</html>
+
+
+
